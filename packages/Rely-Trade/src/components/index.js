@@ -1,15 +1,30 @@
 import React from 'react';
 import Header from './Header';
-import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
-import { connect, Global, styled } from 'frontity';
+import { connect, Global } from 'frontity';
 import Footer from './Footer';
+import globalStyles from './styles/global-styles';
+import { Col, Container, Row } from 'react-bootstrap';
+import Sidebar from './Sidebar';
+import MainPage from './Main';
 
 const Root = ({ state }) => {
+    const data = state.source.get(state.router.link);
     return (
       <>
-        <Global styles={bootstrap} />
+        <Global styles={globalStyles(state.theme.colors)} />
         <Header />
-        <Main> Coming Soon... </Main>
+        <main>
+          <Container>
+            <Row>
+              <Col lg={3} className="p-0">
+                <Sidebar />
+              </Col>
+              <Col lg={9}>
+                <MainPage />
+              </Col>
+            </Row>
+          </Container>
+        </main>
         <Footer />
       </>
     );
@@ -17,12 +32,3 @@ const Root = ({ state }) => {
 
 export default connect(Root);
 
-const Main = styled.div`
-  height: 200px;
-  text-align: center;
-  font-size: 42px;
-  align-items: center;
-  display: grid;
-  font-weight: 700;
-  text-transform: uppercase;
-`

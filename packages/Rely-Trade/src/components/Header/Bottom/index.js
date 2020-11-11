@@ -1,20 +1,28 @@
 import React from 'react';
 import { connect, styled } from 'frontity'
 import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import Link from '../../link';
 
-const BottomMenu = () => {
+const BottomMenu = ({ state }) => {
+    const menu = state.theme.menu;
+    const { headerbtmbg } = state.theme.colors;
+    const isThereLink = menu != null && menu.length > 0;
     return (
-        <Section className="bg-dark">
+        <Section bg={headerbtmbg}>
             <Container>
                 <Row>
                     <Col>
-                        <Navbar bg="dark" variant="dark">
+                        <Navbar variant="dark">
                             <Nav>
-                                <Nav.Link>Home</Nav.Link>
-                                <Nav.Link>Products</Nav.Link>
-                                <Nav.Link>Services</Nav.Link>
-                                <Nav.Link>About Us</Nav.Link>
-                                <Nav.Link>Contact Us</Nav.Link>
+                                {
+                                    isThereLink && menu.map(([name, link]) => {
+                                        const isCurrentPage = state.router.link === link;
+                                        const Name = name;
+                                        return(
+                                            <Link key={name} href={link} className="nav-link" aria-current={isCurrentPage ? "active" : undefined}>{Name}</Link>
+                                        )
+                                    })
+                                }
                             </Nav>
                         </Navbar>
                     </Col>
@@ -27,6 +35,7 @@ const BottomMenu = () => {
 export default connect(BottomMenu);
 
 const Section = styled.div`
+    background-color: ${(props) => props.bg};
     padding: 0px;
 
     & .navbar  {
@@ -46,8 +55,8 @@ const Section = styled.div`
     & .nav-link:last-child {
         border-right: 0px;
     }
-    & .nav-link:hover {
-        background-color: #666;
-        color: #fff;
+    & .nav-link:hover, & [aria-current="active"] {
+        background-color: #666 !important;
+        color: #fff !important;
     }
 `

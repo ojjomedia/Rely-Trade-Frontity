@@ -10,36 +10,42 @@ const settings = {
   "packages": [
     {
       "name": "Rely-Trade",
-      // "state": {
-      //   "theme": {
-      //     "menu": [
-      //       [
-      //         "Home",
-      //         "/"
-      //       ],
-      //       [
-      //         "Nature",
-      //         "/category/nature/"
-      //       ],
-      //       [
-      //         "Travel",
-      //         "/category/travel/"
-      //       ],
-      //       [
-      //         "Japan",
-      //         "/tag/japan/"
-      //       ],
-      //       [
-      //         "About Us",
-      //         "/about-us/"
-      //       ]
-      //     ],
-      //     "featured": {
-      //       "showOnList": false,
-      //       "showOnPost": false
-      //     }
-      //   }
-      // }
+      "state": {
+        "theme": {
+          "menu": [
+            [
+              "Home",
+              "/"
+            ],
+            [
+              "Products",
+              "/products/"
+            ],
+            [
+              "Services",
+              "/services/"
+            ],
+            [
+              "About Us",
+              "/about-us/"
+            ],
+            [
+              "Contact Us",
+              "/contact-us/"
+            ]
+          ],
+
+          // Post Thumbnail Show & Hide option here ( Show = ture) ( Hide = false)
+          "featured": {
+            "showOnList": false,
+            "showOnPost": false
+          }, 
+
+          // Site link auto fetch option set here 
+          // if you don't want to auto fetch then type herer "unhover"
+          autoPreFetch: 'hover',
+        }
+      }
     },
     {
       "name": "@frontity/wp-source",

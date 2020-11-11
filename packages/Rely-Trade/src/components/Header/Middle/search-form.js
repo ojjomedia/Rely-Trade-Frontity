@@ -3,7 +3,8 @@ import { connect, styled } from 'frontity';
 import { Form, FormControl, InputGroup } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchForm = () => {
+const SearchForm = ({ state }) => {
+    const { primary } = state.theme.colors;
     return (
         <>
           <SearchBox>
@@ -14,7 +15,7 @@ const SearchForm = () => {
             className="mr-sm-2 search-form"
             />
             <InputGroup.Append>
-                <FaSearch />
+                <FaSearch color={primary} />
             </InputGroup.Append>
           </SearchBox> 
         </>
@@ -31,13 +32,17 @@ const SearchBox = styled(InputGroup)`
     & .input-group-append {
         align-items: center;
     }
+    & .form-control {
+        font-size: 1.4rem !important;
+        height: auto;
+        padding: 10px 15px;
+    }
     & .form-control:focus {
         border-color: none;
         box-shadow: none;
     }
     & svg {
         margin-left: -40px;
-        color: #7eb942;
         z-index: 999;
     }
 `

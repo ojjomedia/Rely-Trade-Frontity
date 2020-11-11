@@ -1,17 +1,21 @@
 import React from 'react';
-import { connect } from 'frontity';
+import { connect, styled } from 'frontity';
 import Top from './Top';
 import Middle from './Middle';
 import BottomMenu from './Bottom'
 
 const Header = ({ state }) => {
     return (
-        <div >
+        <MainSection>
             <Top />
             <Middle />
             <BottomMenu />
-        </div>
+        </MainSection>
     )
 }
 
 export default connect(Header);
+
+const MainSection = styled.div`
+    margin-bottom: 35px;
+`

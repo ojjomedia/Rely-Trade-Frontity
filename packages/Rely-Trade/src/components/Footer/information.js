@@ -36,6 +36,7 @@ const List = styled.ul`
     padding: 0px;
 `
 const ListItem = styled.li`
+    font-size: 16px;
     list-style: none;
     font-weight: 500;
     margin-bottom: 10px;

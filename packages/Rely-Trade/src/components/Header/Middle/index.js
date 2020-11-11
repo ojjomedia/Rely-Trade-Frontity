@@ -4,14 +4,18 @@ import { Col, Container, Image, Row } from 'react-bootstrap';
 import Logo from '../../../img/Mail_Logo.png';
 import SearchForm from './search-form';
 import { MdPhoneIphone } from 'react-icons/md';
+import Link from '../../link';
 
-const Middle = () => {
+const Middle = ({state }) => {
+    const { primary } = state.theme.colors;
     return (
         <Section>
             <Container>
                 <Row className="align-items-center">
                     <Col xs lg={3} className="pl-0">
-                        <Image src={Logo} width="220" />
+                        <Link href="/">
+                            <Image src={Logo} width="220" />
+                        </Link>
                     </Col>
                     <Col xs lg={6}>
                         <SearchForm />
@@ -19,7 +23,7 @@ const Middle = () => {
                     <Col xs lg={3}>
                         <Main className="d-flex align-items-center float-right">
                             <PhoneIcon>
-                                <MdPhoneIphone />
+                                <MdPhoneIphone color={primary} />
                             </PhoneIcon>
                             <MainContent>
                                 <Title>Hotline:</Title>
@@ -46,7 +50,6 @@ const PhoneIcon = styled.div`
     & svg{
         width: 52px;
         height: auto;
-        color: #7eb942;
     }
 `
 const MainContent = styled.div`

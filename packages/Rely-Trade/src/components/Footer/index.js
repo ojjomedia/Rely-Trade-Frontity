@@ -7,9 +7,10 @@ import Information from './information';
 import Contact from './contact';
 import SocialIcon from '../Header/Social-icon';
 
-const Footer = () => {
+const Footer = ({ state }) => {
+    const { footer, footerBottomBg } = state.theme.colors;
     return (
-        <MainContainer>
+        <MainContainer bg={footer}>
             <Container>
                 <Row>
                     <Col xs lg={3}>
@@ -31,7 +32,7 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
-            <Copyright>
+            <Copyright bg={footerBottomBg}>
                 <Container>
                     <Row>
                         <Col>
@@ -49,8 +50,9 @@ const Footer = () => {
 export default connect(Footer);
 
 const MainContainer = styled.div`
-    background-color: #eeeeee;
+    background-color: ${(props) => props.bg};
     padding: 30px 0px 0px 0px;
+    margin-top: 35px;
 
     & .fot-myacc {
         border-left: 1px solid #dddddd;
@@ -64,7 +66,7 @@ const MainContainer = styled.div`
     }
 `
 const Copyright = styled.div`
-    background-color: #dddddd;
+    background-color: ${(props) => props.bg};
     padding: 10px 0px;
 `
 const Content = styled.p`
