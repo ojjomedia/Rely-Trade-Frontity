@@ -15,6 +15,8 @@ export default {
           lighttext: "#fff",
         },
         primary: "#7eb942",
+        secondary: "#3DB7E8",
+        warning: "#E77E22",
         headerbtmbg: "#444444",
         footer: "#eeeeee",
         footerBottomBg: "#dddddd",
@@ -24,7 +26,7 @@ export default {
 
       // Site link auto fetch option set here 
       // if you don't want to auto fetch then type herer "unhover"
-      autoPreFetch: "no",
+      autoPreFetch: "",
 
       // Categorires list on sidebar 
       categorires: {

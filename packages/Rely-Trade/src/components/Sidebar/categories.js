@@ -39,7 +39,7 @@ const Categories = ({ state }) => {
 export default connect(Categories);
 
 const MainBody = styled.div`
-
+    margin-bottom: 35px;
 `
 const TitleSection = styled.div`
     display: flex;
@@ -47,11 +47,11 @@ const TitleSection = styled.div`
     background-color: ${(props) => props.bg};
 `
 const TitleIcon = styled.div`
-    padding: 10px 18px;
+    padding: 6px 18px;
     display: inherit;
     background: rgba(0, 0, 0, 0.19);
     & svg {
-        width: 25px;
+        width: 22px;
         height: auto;
     }
 `
@@ -60,7 +60,7 @@ const Title = styled.h3`
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 15px;
+    padding: 10px 15px;
 `
 const Body = styled.div`
     border: 1px solid;
@@ -75,7 +75,7 @@ const BodyItem = styled.li`
 const ItemLink = styled(Link)`
     font-size: 16px;
     font-weight: 500;
-    line-height: 52px;
+    line-height: 42px;
     display: block;
     padding: 0 15px;
     text-transform: uppercase;

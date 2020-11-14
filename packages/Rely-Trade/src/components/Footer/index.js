@@ -6,10 +6,13 @@ import MyAccount from './my-account';
 import Information from './information';
 import Contact from './contact';
 import SocialIcon from '../Header/Social-icon';
+import FooterTop from './footer-top';
 
 const Footer = ({ state }) => {
     const { footer, footerBottomBg } = state.theme.colors;
     return (
+        <>
+        <FooterTop />
         <MainContainer bg={footer}>
             <Container>
                 <Row>
@@ -44,6 +47,7 @@ const Footer = ({ state }) => {
                 </Container>
             </Copyright>
         </MainContainer>
+        </>
     )
 }
 
