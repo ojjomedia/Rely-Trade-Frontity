@@ -3,6 +3,7 @@ import { connect } from 'frontity';
 import Categories from './categories';
 import LatestPost from './latest-post';
 import Faqs from './faqs';
+import Testimonial from './Testimonial';
 
 const Sidebar = () => {
     return (
@@ -10,6 +11,7 @@ const Sidebar = () => {
             <Categories />
             <LatestPost />
             <Faqs />
+            <Testimonial />
         </div>
     )
 }
