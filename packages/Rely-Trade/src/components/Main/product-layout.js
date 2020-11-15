@@ -25,16 +25,6 @@ const ProductLayout = ({ state, CategoriesTitle }) => {
             <ProductBox border={light}>
                 <Container>
                     <Row>
-                        <Col xs lg={3} className="pl-0">
-                            <ProdcutItem border={light}>
-                                <ItemImage>
-                                    <Image src={ProductImg} width="100%" />
-                                </ItemImage>
-                                <ItemContent>
-                                    <Title color={text}> Cras cursus nulla accum </Title>
-                                </ItemContent>
-                            </ProdcutItem>
-                        </Col>
                         <Col xs lg={3}>
                             <ProdcutItem border={light}>
                                 <ItemImage>
@@ -55,7 +45,17 @@ const ProductLayout = ({ state, CategoriesTitle }) => {
                                 </ItemContent>
                             </ProdcutItem>
                         </Col>
-                        <Col xs lg={3} className="pr-0">
+                        <Col xs lg={3}>
+                            <ProdcutItem border={light}>
+                                <ItemImage>
+                                    <Image src={ProductImg} width="100%" />
+                                </ItemImage>
+                                <ItemContent>
+                                    <Title color={text}> Cras cursus nulla accum </Title>
+                                </ItemContent>
+                            </ProdcutItem>
+                        </Col>
+                        <Col xs lg={3}>
                             <ProdcutItem border={light}>
                                 <ItemImage>
                                     <Image src={ProductImg} width="100%" />
@@ -119,9 +119,9 @@ const ProductBox = styled.div`
 `
 const ProdcutItem = styled.div`
     height: 100%;
-    border-left: 1px solid;
+    /* border-left: 1px solid;
     border-right: 1px solid;
-    border-color: ${(props) => props.border};
+    border-color: ${(props) => props.border}; */
 `
 const ItemImage = styled.div`
 
@@ -132,4 +132,5 @@ const ItemContent = styled.div`
 const Title = styled.h3`
     font-size: 14px;
     text-align: center;
+    margin-bottom: 20px;
 `

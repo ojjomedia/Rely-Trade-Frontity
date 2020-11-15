@@ -44,6 +44,7 @@ const settings = {
           // Site link auto fetch option set here 
           // if you don't want to auto fetch then type herer "unhover"
           autoPreFetch: 'hover',
+          
         }
       }
     },
