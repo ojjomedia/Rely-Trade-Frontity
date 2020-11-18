@@ -1,4 +1,17 @@
 import Root from "./components";
+import { postHandler } from './components/Hook/handlers';
+
+const PostHandler = {
+  pattern: '/product/',
+  priority: 10,
+  func: async ({ route, params, state, libraries }) => {
+    state.source.data["/product/"].isPostType = true;
+    const archive = libraries.source.handlers.find(
+      handler => handler.name == "Products"
+    );
+    await archive.func({ route, params, state, libraries });
+  }
+}
 
 export default {
   name: "Rely-Trade",
@@ -76,6 +89,16 @@ export default {
     }
   },
   actions: {
-    theme: {}
+    theme: {
+      init: ({ libraries }) => {
+        libraries.source.handlers.push(postHandler);
+      }
+    }
+  },
+  libraries: {
+    html2react: {},
+    source: {
+      handlers: [postHandler]
+    }
   }
 };

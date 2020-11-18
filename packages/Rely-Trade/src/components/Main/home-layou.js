@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'frontity';
 import ProductLayout from './product-layout';
+import ProductCarousel from '../Products/carousel';
 
 const HomeLayou = ({ state }) => {
     return (

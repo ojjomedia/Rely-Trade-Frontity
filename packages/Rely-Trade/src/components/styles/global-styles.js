@@ -1,7 +1,16 @@
 import { connect, css } from 'frontity';
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
+import ProductSlider from 'react-multi-carousel/lib/styles.css';
+import Revicons from '../../fonts/revicons.ttf';
 
 const cssReset = css`
+  @font-face {
+    font-family: "revicons";
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("${Revicons}") format("truetype");
+  }
   html,
   body {
     border: none;
@@ -90,12 +99,40 @@ const documentSetup = (colors) => css`
   #site-content {
     overflow: hidden;
   }
+  .react-multiple-carousel__arrow {
+    border-radius: 0px !important;
+    /* min-width: 40px !important;
+    min-height: 40px !important;
+    background: #fff !important;
+    border: 1px solid !important; */
+    /* border-color: ${colors.gray.light} !important; */
+    & :hover, :focus {
+      border-color: ${colors.primary} !important;
+      background: ${colors.primary} !important;
+    }
+  }
+  .react-multiple-carousel__arrow::before {
+    color: ${colors.gray.light} !important;
+    & :hover, :focus {
+      color: ${colors.gray.lighttext} !important;
+    }
+  }
+  .react-multiple-carousel__arrow--left {
+    left: 0;
+  }
+  .react-multiple-carousel__arrow--right {
+    right: 0;
+}
+.react-multi-carousel-dot--active button{
+  background: ${colors.primary} !important;
+}
 `;
 
 const globalStyles = (colors) => 
     css([
         bootstrap,
         cssReset,
+        ProductSlider,
         documentSetup(colors),
     ])
 

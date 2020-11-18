@@ -2,9 +2,14 @@ import React from 'react';
 import { connect, styled } from 'frontity';
 import TitleSection from '../Sidebar/section-title';
 import { Col, Container, Image, Row } from 'react-bootstrap';
-import ProductImg from '../../img/product_img.jpg';
+import Carousel from 'react-multi-carousel';
+import Thumbnal from './thumbnal';
+import Link from '../link';
 
-const ProductLayout = ({ state, CategoriesTitle }) => {
+const ProductLayout = ({ state, CategoriesTitle, libraries }) => {
+    const data = state.source.get(state.router.link);
+    // Get the html2react component.
+    const Html2React = libraries.html2react.Component;
     const { primary, text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
     return (
@@ -23,50 +28,74 @@ const ProductLayout = ({ state, CategoriesTitle }) => {
                 </SubCat>
             </TilteSection>
             <ProductBox border={light}>
-                <Container>
-                    <Row>
-                        <Col xs lg={3}>
+            <Carousel
+            additionalTransfrom={0}
+            arrows
+            autoPlay
+            autoPlaySpeed={5000}
+            centerMode={false}
+            className=""
+            containerClass="container-with-dots"
+            dotListClass=""
+            draggable
+            focusOnSelect={false}
+            infinite
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            responsive={{
+                desktop: {
+                breakpoint: {
+                    max: 3000,
+                    min: 1024
+                },
+                items: 3,
+                partialVisibilityGutter: 40
+                },
+                mobile: {
+                breakpoint: {
+                    max: 464,
+                    min: 0
+                },
+                items: 1,
+                partialVisibilityGutter: 30
+                },
+                tablet: {
+                breakpoint: {
+                    max: 1024,
+                    min: 464
+                },
+                items: 2,
+                partialVisibilityGutter: 30
+                }
+            }}
+            showDots={false}
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+            >
+                {data.items.map((item, index) => {
+                    const post = state.source.post[item.id];
+                    const allCategories = state.source.category;
+                    const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
+                    const Aut = state.source.author[post.author];
+                    const Img = state.theme.thumbnal.showOnList;
+                    return(
+                        <div key={index}>
                             <ProdcutItem border={light}>
-                                <ItemImage>
-                                    <Image src={ProductImg} width="100%" />
-                                </ItemImage>
-                                <ItemContent>
-                                    <Title color={text}> Cras cursus nulla accum </Title>
-                                </ItemContent>
+                                <ItemLink href={post.link}>
+                                    <ItemImage>
+                                        { Img === true && <Thumbnal classAdd="img-height" id={post.featured_media} /> }
+                                    </ItemImage>
+                                    <ItemContent color={text}> <Title><Html2React html={post.title.rendered} /></Title> </ItemContent>
+                                </ItemLink>
                             </ProdcutItem>
-                        </Col>
-                        <Col xs lg={3}>
-                            <ProdcutItem border={light}>
-                                <ItemImage>
-                                    <Image src={ProductImg} width="100%" />
-                                </ItemImage>
-                                <ItemContent>
-                                    <Title color={text}> Cras cursus nulla accum </Title>
-                                </ItemContent>
-                            </ProdcutItem>
-                        </Col>
-                        <Col xs lg={3}>
-                            <ProdcutItem border={light}>
-                                <ItemImage>
-                                    <Image src={ProductImg} width="100%" />
-                                </ItemImage>
-                                <ItemContent>
-                                    <Title color={text}> Cras cursus nulla accum </Title>
-                                </ItemContent>
-                            </ProdcutItem>
-                        </Col>
-                        <Col xs lg={3}>
-                            <ProdcutItem border={light}>
-                                <ItemImage>
-                                    <Image src={ProductImg} width="100%" />
-                                </ItemImage>
-                                <ItemContent>
-                                    <Title color={text}> Cras cursus nulla accum </Title>
-                                </ItemContent>
-                            </ProdcutItem>
-                        </Col>
-                    </Row>
-                </Container>
+                        </div>
+                    )
+                })}
+            </Carousel> 
             </ProductBox>
         </MainContainer>
     )
@@ -112,6 +141,12 @@ const Item = styled.li`
         border-color: ${(props) => props.border};
     }
 `
+const ItemLink = styled(Link)`
+    
+    & :hover {
+        text-decoration: none !important;
+    }
+`
 const ProductBox = styled.div`
     margin-bottom: 50px;
     border: 1px solid;
@@ -127,7 +162,9 @@ const ItemImage = styled.div`
 
 `
 const ItemContent = styled.div`
-
+    font-size: 16px !important;
+    margin: 10px 0px;
+    color: ${(props) => props.color} !important;
 `
 const Title = styled.h3`
     font-size: 14px;

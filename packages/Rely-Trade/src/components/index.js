@@ -6,6 +6,9 @@ import globalStyles from './styles/global-styles';
 import { Col, Container, Row } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import MainPage from './Main';
+import Pages from './Pages';
+import Page404 from './404';
+import Products from './Products';
 
 const Root = ({ state }) => {
     const data = state.source.get(state.router.link);
@@ -20,7 +23,10 @@ const Root = ({ state }) => {
                 <Sidebar />
               </Col>
               <Col lg={9}>
-                <MainPage />
+                {data.isArchive && <MainPage /> }
+                {data.isPage && <Pages /> }
+                {data.isPost && <Products /> }
+                {data.is404 && <Page404 /> }
               </Col>
             </Row>
           </Container>

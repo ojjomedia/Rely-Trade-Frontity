@@ -3,7 +3,7 @@ const settings = {
   "state": {
     "frontity": {
       "url": "http://relytrade.com",
-      "title": "Test Frontity Blog",
+      "title": "Rely Trade",
       "description": "WordPress installation for Frontity development"
     }
   },
@@ -19,7 +19,7 @@ const settings = {
             ],
             [
               "Products",
-              "/shop/"
+              "/product/"
             ],
             [
               "Services",
@@ -36,9 +36,9 @@ const settings = {
           ],
 
           // Post Thumbnail Show & Hide option here ( Show = ture) ( Hide = false)
-          "featured": {
-            "showOnList": false,
-            "showOnPost": false
+          thumbnal: {
+            showOnList: true,
+            showOnPost: true
           }, 
 
           // Site link auto fetch option set here 
@@ -52,7 +52,12 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "http://relytrade.com/wp-json"
+          prefix: "/wp-json",
+          api: "http://relytrade.com/wp-json",
+          params: {
+            per_page: 100,
+            // type: ["post", "page"],
+          },
         }
       }
     },
