@@ -4,7 +4,7 @@ import TitleSection from '../Sidebar/section-title';
 import ProductCarousel from '../Products/carousel';
 import Link from '../link';
 
-const ProductLayout = ({ state, CategoriesTitle, libraries, C_Link, SubCategory, Time }) => {
+const ProductLayout = ({ state, CategoriesTitle, libraries, Id, SubCategory }) => {
     const data = state.source.get(state.router.link);
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
@@ -20,14 +20,15 @@ const ProductLayout = ({ state, CategoriesTitle, libraries, C_Link, SubCategory,
                     <List>
                         {SubCategory.map(([name, link]) => {
                             return(
-                                <ItemLink href={link}><Item key={name} border={light}> {name} </Item></ItemLink>
+                                <ItemLink key={name} href={link}><Item border={light}> {name} </Item></ItemLink>
                             )
                         })}
                     </List>
                 </SubCat>
             </TilteSection>
             <ProductBox border={light}>
-                <ProductCarousel CategoryLink={C_Link} autoPlayTime={Time} />
+                <ProductCarousel CategoryId={Id} />
+                <Bubtton href="/products" bg={primary} color={text}>View More</Bubtton>
             </ProductBox>
         </MainContainer>
     )
@@ -82,24 +83,21 @@ const ItemLink = styled(Link)`
 const ProductBox = styled.div`
     margin-bottom: 50px;
     border: 1px solid;
+    padding: 30px 0;
     border-color: ${(props) => props.border};
 `
-const ProdcutItem = styled.div`
-    height: 100%;
-    /* border-left: 1px solid;
-    border-right: 1px solid;
-    border-color: ${(props) => props.border}; */
-`
-const ItemImage = styled.div`
-
-`
-const ItemContent = styled.div`
-    font-size: 16px !important;
-    margin: 10px 0px;
-    color: ${(props) => props.color} !important;
-`
-const Title = styled.h3`
+const Bubtton = styled(Link)`
+    text-align: center !important;
+    padding: 8px 20px;
+    background: ${(props) => props.bg};
     font-size: 14px;
-    text-align: center;
-    margin-bottom: 20px;
+    font-weight: 600;
+    align-content: center;
+    display: grid;
+    margin: 0 auto;
+    width: 20%;
+    color: #fff !important;
+    & :hover {
+        color: ${(props) => props.color} !important;
+    }
 `

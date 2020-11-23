@@ -9,7 +9,7 @@ const Sidebar = () => {
     return (
         <div>
             <Categories />
-            <LatestPost />
+            {/* <LatestPost /> */}
             <Faqs />
             <Testimonial />
         </div>

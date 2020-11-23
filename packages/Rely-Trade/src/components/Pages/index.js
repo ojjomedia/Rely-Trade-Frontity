@@ -21,7 +21,7 @@ const Pages = ({ state, libraries }) => {
                   <Title> <Html2React html={page.title.rendered} /> </Title>
                </PageTitle>
                 <PageContent>
-                    {/* <Content> <Html2React html={ page.content.rendered } /> </Content> */}
+                    <Content> <Html2React html={ page.content.rendered } /> </Content>
                 </PageContent>
             </MainSection>
         }
@@ -88,6 +88,9 @@ const PageContent = styled.div`
    & svg {
       font-size: 25px;
    }
+`
+const Content = styled.div`
+
 `
 const ProduuctTitle = styled.div`
     padding: 20px;

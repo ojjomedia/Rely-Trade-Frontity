@@ -15,7 +15,7 @@ const Faqs = ({ state }) => {
                 </TitleSection>
             </TitleBox>
             <Body>
-                <Accordion defaultActiveKey="">
+                <Accordion defaultActiveKey="0">
                     <Item border={light}>
                         <Toggle as={Card.Header} eventKey="0" color={text}>
                         Pellentesque vitae imperdiet in?

@@ -30,6 +30,10 @@ export const ProductPage = {
       isFetching: currentPageData.isFetching,
       isReady: currentPageData.isReady,
     };
+    const archive = libraries.source.handlers.find(
+      handler => handler.name == "post archive"
+    );
+    await archive.func({ link, params, state, libraries, force });
     Object.assign(currentPageData, newPageData);
   },
   }

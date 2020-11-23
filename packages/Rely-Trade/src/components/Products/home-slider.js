@@ -1,11 +1,47 @@
 import React from 'react'
-import Carousel from "react-multi-carousel";
+import { Carousel } from 'react-bootstrap';
+// import Carousel from "react-multi-carousel";
 import Slider_1 from '../../img/Slider-1.jpg';
 
 const HomeSlider = () => {
     return (
         <>
-           <Carousel
+        <Carousel>
+            <Carousel.Item interval={1000}>
+            <img
+                src={Slider_1}
+                style={{
+                display: 'block',
+                height: '100%',
+                margin: 'auto',
+                width: '100%'
+                }}
+            />
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+            <img
+                src={Slider_1}
+                style={{
+                display: 'block',
+                height: '100%',
+                margin: 'auto',
+                width: '100%'
+                }}
+            />
+            </Carousel.Item>
+            <Carousel.Item>
+            <img
+                src={Slider_1}
+                style={{
+                display: 'block',
+                height: '100%',
+                margin: 'auto',
+                width: '100%'
+                }}
+            />
+            </Carousel.Item>
+        </Carousel>
+           {/* <Carousel
             additionalTransfrom={0}
             arrows
             autoPlay
@@ -77,7 +113,7 @@ const HomeSlider = () => {
                 width: '100%'
                 }}
             />
-            </Carousel> 
+            </Carousel>  */}
         </>
     )
 }
