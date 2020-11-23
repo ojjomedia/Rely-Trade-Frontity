@@ -19,7 +19,7 @@ const settings = {
             ],
             [
               "Products",
-              "/product/"
+              "/products/"
             ],
             [
               "Services",

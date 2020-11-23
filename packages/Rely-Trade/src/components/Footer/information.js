@@ -1,24 +1,27 @@
 import React from 'react';
 import { connect, styled } from 'frontity';
-import { FiChevronsRight } from 'react-icons/fi'
+import { FiChevronsRight } from 'react-icons/fi';
+import Link from '../link';
 
-const Information = () => {
+const Information = ({ state, libraries }) => {
+    const Info = state.theme.information.list;
+    const Html2React = libraries.html2react.Component;
+    const isThereLink = Info != null && Info.length > 0;
+    const { primary, text } = state.theme.colors;
     return (
         <>
             <Title>Information</Title>
             <List>
-                <ListItem>
-                    <FiChevronsRight /> About Us
-                </ListItem>
-                <ListItem>
-                    <FiChevronsRight /> Contact Us
-                </ListItem>
-                <ListItem>
-                    <FiChevronsRight /> Terms &amp; Condition
-                </ListItem>
-                <ListItem>
-                    <FiChevronsRight /> Why Rely Trade
-                </ListItem>
+                {
+                    isThereLink && Info.map(([name, link]) => {
+                        const isCurrentPage = state.router.link === link;
+                        return(
+                            <ListItem key={name}>
+                                <Link href={link} hover={primary} color={text} aria-current={isCurrentPage ? "active" : undefined}><FiChevronsRight /> <Html2React html={name} /> </Link>
+                            </ListItem>
+                        )
+                    })
+                }
             </List>
         </>
     )

@@ -1,17 +1,5 @@
 import Root from "./components";
-import { postHandler } from './components/Hook/handlers';
-
-const PostHandler = {
-  pattern: '/product/',
-  priority: 10,
-  func: async ({ route, params, state, libraries }) => {
-    state.source.data["/product/"].isPostType = true;
-    const archive = libraries.source.handlers.find(
-      handler => handler.name == "Products"
-    );
-    await archive.func({ route, params, state, libraries });
-  }
-}
+import { ProductPage } from './components/Hook/handlers';
 
 export default {
   name: "Rely-Trade",
@@ -46,59 +34,93 @@ export default {
         list: [
           [
             "INDUSTRIAL MACHINERY",
-            "/INDUSTRIAL/"
+            "/category/industrial-machinery"
           ],
           [
             "SAFETY EQUIPMENT",
-            "/SAFETY/"
+            "/category/safety-equipments"
           ],
           [
             "SECURITY EQUIPMENT’S",
-            "/SECURITY/",
+            "/category/security-equipments",
           ],
           [
             "MEDICAL EQUIPMENT’S",
-            "/MEDICAL/"
+            "/category/medical-equipments"
           ],
           [
             "COMMERCIAL EQUIPMENT’S",
-            "/COMMERCIAL/"
+            "/category/commercial-equipments"
           ],
           [
             "AQUA CULTURAL EQUIPMENT’S",
-            "/AQUA/"
+            "/category/aqua-cultural-equipments"
           ],
           [
             "LAB EQUIPMENT’S",
-            "/LAB/"
+            "/category/lab-equipment"
           ],
           [
             "INDUSTRIAL PLANT",
-            "/PLANT/"
+            "/category/industrial-plant"
           ],
           [
             "DM PLANT",
-            "/DM/"
-          ],
-          [
-            "OTHER’S",
-            "/OTHER’S/"
+            "/category/industrial-plant/dm-plant"
           ]
         ]
       },
-    }
-  },
+     
+      // Menu for footer 
+      information: {
+        list: [
+          [
+            "About Us",
+            "/about-us"
+          ],
+          [
+            "Contact Us",
+            "/contact-us"
+          ],
+          [
+            "Terms & Condition",
+            "/terms-condition"
+          ],
+          [
+            "Why Rely Trade",
+            "/why-rely-trade"
+          ]
+        ]
+      },
+      myaccount: {
+        list: [
+          [
+            "Products",
+            "/products"
+          ],
+          [
+            "Services",
+            "/services"
+          ],
+          [
+            "Privacy Policy",
+            "/privacy-policy"
+          ],
+        ]
+      }
+    },
+    },
+
+    
   actions: {
     theme: {
       init: ({ libraries }) => {
-        libraries.source.handlers.push(postHandler);
+        libraries.source.handlers.push(ProductPage);
       }
     }
   },
   libraries: {
     html2react: {},
-    source: {
-      handlers: [postHandler]
-    }
+    source: {}
   }
 };

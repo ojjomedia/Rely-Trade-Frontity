@@ -25,7 +25,7 @@ const Categories = ({ state }) => {
                                 const isCurrentPage = state.router.link === link;
                                 return(
                                     <BodyItem key={name}>
-                                    <ItemLink href={link} hover={primary} bg={light} color={text} aria-current={isCurrentPage ? "active" : undefined}>{name} <span className="float-right"> <MdKeyboardArrowRight /> </span></ItemLink>
+                                        <ItemLink href={link} hover={primary} bg={light} color={text} aria-current={isCurrentPage ? "category" : undefined}>{name} <span className="float-right"> <MdKeyboardArrowRight /> </span></ItemLink>
                                     </BodyItem>
                                 )
                             })
@@ -67,7 +67,7 @@ const Body = styled.div`
     border-color: ${(props) => props.color};
 `
 const BodyList = styled.ul`
-
+    padding: 0px;
 `
 const BodyItem = styled.li`
     list-style: none;
@@ -81,7 +81,7 @@ const ItemLink = styled(Link)`
     text-transform: uppercase;
     color: ${(props) => props.color} !important;
 
-    & :hover, &[aria-current="active"] {
+    & :hover, & [aria-current="category"], & :focus {
         text-decoration: none;
         background-color: ${(props) => props.bg};
         color: ${(props) => props.hover} !important;

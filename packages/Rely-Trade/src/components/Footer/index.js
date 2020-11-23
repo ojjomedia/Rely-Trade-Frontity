@@ -7,9 +7,10 @@ import Information from './information';
 import Contact from './contact';
 import SocialIcon from '../Header/Social-icon';
 import FooterTop from './footer-top';
+import Link from '../link';
 
 const Footer = ({ state }) => {
-    const { footer, footerBottomBg } = state.theme.colors;
+    const { primary, footer, footerBottomBg } = state.theme.colors;
     return (
         <>
         <FooterTop />
@@ -39,8 +40,8 @@ const Footer = ({ state }) => {
                 <Container>
                     <Row>
                         <Col>
-                            <Content>
-                                © Copyright 2020 <a href="#">Rely Trade</a>. All Rights Reserved. Developed by <a href="#">Ojjomedia</a>
+                            <Content color={primary}>
+                                © Copyright 2020 <Link href="/">Rely Trade</Link>. All Rights Reserved. Developed by <a href="https://ojjomedia.com/" target="_blank">Ojjomedia</a>
                             </Content>
                         </Col>
                     </Row>
@@ -77,4 +78,12 @@ const Content = styled.p`
     font-size: 14px;
     color: #444444;
     margin: 0px;
+
+    & a {
+        font-weight: 600;
+        color: ${(props) => props.color} !important;
+        & :hover {
+            text-decoration: none;
+        }
+    }
 `

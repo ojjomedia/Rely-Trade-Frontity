@@ -2,12 +2,13 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import Logo from '../../img/Mail_Logo.png';
 import { connect, styled } from 'frontity';
+import Link from '../link';
 
 const About = ({ state }) => {
     const { primary } = state.theme.colors;
     return (
         <>
-            <Img src={Logo} width="200" />
+            <Link href="/"><Img src={Logo} width="200" /></Link>
             <Title color={primary}>Email:</Title>
             <Content>
                 info@relytrade.com<br/>
@@ -27,7 +28,6 @@ export default connect(About);
 const Img = styled(Image)`
     margin-bottom: 10px;
 `
-
 const Title = styled.h4`
     font-size: 16px;
     font-weight: 600;

@@ -4,22 +4,22 @@ import Thumbnal from '../Main/thumbnal';
 
 const Products = ({ state, libraries }) => {
     const data = state.source.get(state.router.link);
-    const post = state.source[data.type][data.id];
+    const page = state.source[data.type][data.id];
     const Img = state.theme.thumbnal.showOnPost;
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
     return (
         <MainContainer>
             <PostImage>
-                {post.format === "standard" &&
-                    Img === true && <Thumbnal id={post.featured_media} />
+                {page.format === "standard" &&
+                    Img === true && <Thumbnal id={page.featured_media} />
                 }
             </PostImage>
             <PostTitle>
-               <Title> <Html2React html={post.title.rendered} /> </Title>
+               <Title> <Html2React html={page.title.rendered} /> </Title>
             </PostTitle>
             <Contnet>
-               <Html2React html={post.content.rendered} />
+               <Html2React html={page.content.rendered} />
             </Contnet>  
         </MainContainer>
     )
@@ -31,6 +31,7 @@ const MainContainer = styled.div`
 
 `
 const PostImage = styled.div`
+   width: 400px;
    margin-bottom: 15px;
 `
 const PostTitle = styled.div`

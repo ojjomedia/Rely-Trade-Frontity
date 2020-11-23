@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect, styled } from 'frontity';
 import TitleSection from '../Sidebar/section-title';
-import { Col, Container, Image, Row } from 'react-bootstrap';
-import Carousel from 'react-multi-carousel';
-import Thumbnal from './thumbnal';
+import ProductCarousel from '../Products/carousel';
 import Link from '../link';
 
-const ProductLayout = ({ state, CategoriesTitle, libraries }) => {
+const ProductLayout = ({ state, CategoriesTitle, libraries, C_Link, SubCategory, Time }) => {
     const data = state.source.get(state.router.link);
     // Get the html2react component.
     const Html2React = libraries.html2react.Component;
@@ -20,82 +18,16 @@ const ProductLayout = ({ state, CategoriesTitle, libraries }) => {
                 </TitleBox>
                 <SubCat>
                     <List>
-                        <Item border={light}>Safety Vest</Item>
-                        <Item border={light}>Masks</Item>
-                        <Item border={light}>Ear Protector</Item>
-                        <Item border={light}>Safety Goggles</Item>
+                        {SubCategory.map(([name, link]) => {
+                            return(
+                                <ItemLink href={link}><Item key={name} border={light}> {name} </Item></ItemLink>
+                            )
+                        })}
                     </List>
                 </SubCat>
             </TilteSection>
             <ProductBox border={light}>
-            <Carousel
-            additionalTransfrom={0}
-            arrows
-            autoPlay
-            autoPlaySpeed={5000}
-            centerMode={false}
-            className=""
-            containerClass="container-with-dots"
-            dotListClass=""
-            draggable
-            focusOnSelect={false}
-            infinite
-            itemClass=""
-            keyBoardControl
-            minimumTouchDrag={80}
-            renderButtonGroupOutside={false}
-            renderDotsOutside={false}
-            responsive={{
-                desktop: {
-                breakpoint: {
-                    max: 3000,
-                    min: 1024
-                },
-                items: 3,
-                partialVisibilityGutter: 40
-                },
-                mobile: {
-                breakpoint: {
-                    max: 464,
-                    min: 0
-                },
-                items: 1,
-                partialVisibilityGutter: 30
-                },
-                tablet: {
-                breakpoint: {
-                    max: 1024,
-                    min: 464
-                },
-                items: 2,
-                partialVisibilityGutter: 30
-                }
-            }}
-            showDots={false}
-            sliderClass=""
-            slidesToSlide={1}
-            swipeable
-            >
-                {data.items.map((item, index) => {
-                    const post = state.source.post[item.id];
-                    const allCategories = state.source.category;
-                    const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
-                    const Aut = state.source.author[post.author];
-                    const Img = state.theme.thumbnal.showOnList;
-                    return(
-                        <div key={index}>
-                            <ProdcutItem border={light}>
-                                <ItemLink href={post.link}>
-                                    <ItemImage>
-                                        { Img === true && <Thumbnal classAdd="img-height" id={post.featured_media} /> }
-                                    </ItemImage>
-                                    <ItemContent color={text}> <Title><Html2React html={post.title.rendered} /></Title> </ItemContent>
-                                </ItemLink>
-                            </ProdcutItem>
-                        </div>
-                    )
-                })}
-            </Carousel> 
+                <ProductCarousel CategoryLink={C_Link} autoPlayTime={Time} />
             </ProductBox>
         </MainContainer>
     )

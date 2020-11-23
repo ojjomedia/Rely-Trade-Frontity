@@ -17,9 +17,8 @@ const BottomMenu = ({ state }) => {
                                 {
                                     isThereLink && menu.map(([name, link]) => {
                                         const isCurrentPage = state.router.link === link;
-                                        const Name = name;
                                         return(
-                                            <Link key={name} href={link} className="nav-link" aria-current={isCurrentPage ? "active" : undefined}>{Name}</Link>
+                                            <Link key={name} href={link} className="nav-link" aria-current={isCurrentPage ? "active" : undefined}>{name}</Link>
                                         )
                                     })
                                 }
@@ -51,11 +50,12 @@ const Section = styled.div`
         border-right: 1px solid #666;
         text-transform: uppercase;
         transition: all ease-in-out .3s;
+        color: rgba(255,255,255,.5) !important;
     }
     & .nav-link:last-child {
         border-right: 0px;
     }
-    & .nav-link:hover, & [aria-current="active"] {
+    & .nav-link:hover, & [aria-current="active"], & :focus {
         background-color: #666 !important;
         color: #fff !important;
     }

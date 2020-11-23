@@ -1,38 +1,49 @@
 import React, { useEffect } from "react";
-import { connect } from 'frontity';
+import { connect, styled } from "frontity";
 
-const Link = ({ state, href, actions, children, "aria-current": ariaCurrent, Active, rel, className }) => {
+/*
+ * Link Component
+ * Link are passing to every components
+ * Author: ojjomedia <info@ojjomedia.com>
+ */
 
-    // Check if the link is an external or internal link
-    // const isExternal = href.startsWith("http");
+const Link = ({ state, actions, href, children, "aria-current": ariaCurrent, Active, className, rel }) => {
+  const isExternal = href.startsWith("http");
+  const { primary, text } = state.theme.colors;
+  const onMouseEnter = () => {
+    // Set the router to auto data fetch
+    if(state.theme.autoPreFetch === "hover" && !isExternal);
+      actions.source.fetch(href);
+  }
+  {state.theme.autoPreFetch === "hover" && (
+    useEffect(() => {
+      const isitExternal = href.startsWith("http");
+      if(state.theme.autoPreFetch === "hover" && !isitExternal);
+        actions.source.fetch(href);
+    }, [])
+  )}
+  const onClick = (event) => {
+    event.preventDefault();
+    // Set the router to new url
+    actions.router.set(href);
 
-    // // Prefetch the link's content when it mounts and autoPreFetch is set to `true`
-    // useEffect(() => {
-    //     if (!isExternal) {
-    //     if (state.theme.autoPreFetch === "all") actions.source.fetch(link);
-    //     }
-    // }, []);
-
-    const onClick = (e) => {
-        e.preventDefault();
-        // set the router to new url
-        actions.router.set(href);
-
-        window.scrollTo(0, 0);
-    }
-    
-    // const onMouseEnter = () => {
-    //     // Prefetch the link's content when the user hovers on the link
-    //     if (state.theme.autoPreFetch === "hover" && !isExternal)
-    //       actions.source.fetch(href);
-    // }
-    return (
-        <>
-           <a href={href} className={className} onClick={onClick} active={Active} aria-current={ariaCurrent} >
-            {children}
-           </a> 
-        </>
-    )
-}
+    window.scrollTo(0, 0);
+  };
+  return (
+    <Item href={href} onClick={onClick} hover={primary} color={text} className={className} active={Active} aria-current={ariaCurrent} rel={isExternal ? "noopener noreferrer" : rel} onMouseEnter={onMouseEnter}>
+      {children}
+    </Item>
+  );
+};
 
 export default connect(Link);
+
+const Item = styled.a`
+    color: ${(props) => props.color} !important;
+    font-weight: 500;
+
+    & :hover, &[aria-current="active"], & :focus {
+        text-decoration: none;
+        color: ${(props) => props.hover} !important;
+    }
+`

@@ -1,21 +1,21 @@
 import React from 'react';
-import { connect, css, Global, styled } from 'frontity';
+import { connect, styled } from 'frontity';
 import Carousel from 'react-multi-carousel';
 import Thumbnal from '../Main/thumbnal';
 import Link from '../link';
 
-const ProductCarousel = ({ state, libraries }) => {
+const ProductCarousel = ({ state, libraries, CategoryLink, autoPlayTime }) => {
     const data = state.source.get(state.router.link);
     const Html2React = libraries.html2react.Component;
-    const { primary, text } = state.theme.colors;
+    const { text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
     return (
-        <div>
+        <>
             <Carousel
             additionalTransfrom={0}
             arrows
             autoPlay
-            autoPlaySpeed={3000}
+            autoPlaySpeed={autoPlayTime}
             centerMode={false}
             className=""
             containerClass="container-with-dots"
@@ -34,8 +34,8 @@ const ProductCarousel = ({ state, libraries }) => {
                     max: 3000,
                     min: 1024
                 },
-                items: 3,
-                partialVisibilityGutter: 40
+                items: 4,
+                partialVisibilityGutter: 50
                 },
                 mobile: {
                 breakpoint: {
@@ -50,8 +50,8 @@ const ProductCarousel = ({ state, libraries }) => {
                     max: 1024,
                     min: 464
                 },
-                items: 2,
-                partialVisibilityGutter: 30
+                items: 3,
+                partialVisibilityGutter: 40
                 }
             }}
             showDots={false}
@@ -61,25 +61,25 @@ const ProductCarousel = ({ state, libraries }) => {
             >
                 {data.items.map((item, index) => {
                     const post = state.source.post[item.id];
-                    const allCategories = state.source.category;
-                    const categories = post.categories && post.categories.map((catId) => allCategories[catId]);
-                    const Aut = state.source.author[post.author];
                     const Img = state.theme.thumbnal.showOnList;
                     return(
+                        <>
                         <div key={index}>
                             <ProdcutItem border={light}>
                                 <ItemLink href={post.link}>
                                     <ItemImage>
                                         { Img === true && <Thumbnal classAdd="img-height" id={post.featured_media} /> }
                                     </ItemImage>
+                                    
                                     <ItemContent color={text}> <Title><Html2React html={post.title.rendered} /></Title> </ItemContent>
                                 </ItemLink>
                             </ProdcutItem>
                         </div>
+                        </>
                     )
                 })}
             </Carousel>   
-        </div>
+        </>
     )
 }
 
