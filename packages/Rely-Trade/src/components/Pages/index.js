@@ -6,11 +6,10 @@ import Link from '../link';
 
 const Pages = ({ state, libraries }) => {
     const data = state.source.get(state.router.link);
-    const post = state.source.post;
     const page = state.source[data.type][data.id];
     const Html2React = libraries.html2react.Component;
-    const { primary, text } = state.theme.colors;
-    const { light, lighter } = state.theme.colors.gray;
+    const { text } = state.theme.colors;
+    const { light } = state.theme.colors.gray;
     return (
         <>
         {/* This Sechtion for all pages layout  */}
@@ -82,6 +81,7 @@ const Title = styled.h3`
    }
 `
 const PageContent = styled.div`
+    padding: 0px 20px;
    & p {
       margin-bottom: 10px;
    }

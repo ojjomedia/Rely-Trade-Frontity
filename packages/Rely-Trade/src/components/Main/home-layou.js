@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'frontity';
 import ProductLayout from './product-layout';
-import ProductCarousel from '../Products/carousel';
 
 const HomeLayou = ({ state }) => {
     return (
         <div>
             <ProductLayout 
             CategoriesTitle="Safety Equipment's" 
-            Id="69"
+            Id="90"
             SubCategory={ 
-                [['Safety', '/category/safety-equipments/safety-vest/'],
+                [['Safety', '/category/safety-equipments/safety/'],
                 ['Masks', '/category/safety-equipments/masks/'],
                 ['Ear Protector', '/category/safety-equipments/ear-protector/'],
                 ['Safety Goggles', '/category/safety-equipments/safety-goggles/']] 
@@ -18,7 +17,7 @@ const HomeLayou = ({ state }) => {
 
             <ProductLayout 
             CategoriesTitle="Industrial Plant" 
-            Id="74"
+            Id="92"
             SubCategory={ 
                 [['DM Plant', '/category/industrial-plant/dm-plant/'],
                 ['Iron Removal Plant', '/category/industrial-plant/iron-removal-plant/'],
@@ -27,7 +26,7 @@ const HomeLayou = ({ state }) => {
 
             <ProductLayout 
             CategoriesTitle="Lab Equipment" 
-            Id="75"
+            Id="91"
             SubCategory={ 
                 [['Textile Lab Consumable', '/category/lab-equipment/textile-lab-consumable/'],
                 ['Textile Lab Machinery', '/category/lab-equipment/textile-lab-machinery/']] 

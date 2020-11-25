@@ -3,7 +3,8 @@ import Header from './Header';
 import { connect, Global, styled } from 'frontity';
 import Footer from './Footer';
 import globalStyles from './styles/global-styles';
-import { Col, Container, Row, Image } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import FontFaces from './styles/font-faces';
 import Sidebar from './Sidebar';
 import MainPage from './Main';
 import Pages from './Pages';
@@ -18,6 +19,7 @@ const Root = ({ state }) => {
     return data.isReady ? (
       <>
         <Global styles={globalStyles(state.theme.colors)} />
+        <FontFaces />
         <Header />
         <main>
           <Container>

@@ -29,6 +29,12 @@ export default {
       // if you don't want to auto fetch then type herer "unhover"
       autoPreFetch: "",
 
+      /**
+       * At the moment, we only include the ascii characters of Inter font.
+       * Values can be "us-ascii" | "latin" | "all"
+       */
+      fontSets: "all",
+
       // Categorires list on sidebar 
       categorires: {
         list: [

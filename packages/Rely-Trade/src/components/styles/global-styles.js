@@ -4,16 +4,8 @@ import {
 } from 'frontity';
 import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 import ProductSlider from 'pure-react-carousel/dist/react-carousel.es.css';
-import Revicons from '../../fonts/revicons.ttf';
 
 const cssReset = css `
-  @font-face {
-    font-family: "revicons";
-    font-style: normal;
-    font-weight: normal;
-    font-display: fallback;
-    src: url("${Revicons}") format("truetype");
-  }
   html,
   body {
     border: none;
@@ -88,6 +80,40 @@ const documentSetup = (colors) => css `
     font-size: 1.8rem;
     letter-spacing: -0.015em;
     text-align: left;
+    & p {
+    font-size: 16px;
+    color: ${colors.text};
+  }
+  & h1 {
+    font-size: 38px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h5 {
+    font-size: 12px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h6 {
+    font-size: 10px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
   }
 
   *,
@@ -115,6 +141,37 @@ const documentSetup = (colors) => css `
     color: ${colors.primary};
   }
   & p {
+    font-size: 16px;
+    color: ${colors.text};
+  }
+  & h1 {
+    font-size: 38px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h5 {
+    font-size: 12px;
+    font-weight: bold;
+    color: ${colors.text};
+  }
+  & h6 {
+    font-size: 10px;
+    font-weight: bold;
     color: ${colors.text};
   }
   & label {
@@ -157,7 +214,7 @@ const documentSetup = (colors) => css `
     width: 100%;
     height: 150px;
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
@@ -166,6 +223,10 @@ const documentSetup = (colors) => css `
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    & :focus {
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
   }
 }
 @media (min-width: 782px) {
@@ -216,6 +277,30 @@ align-self: flex-end; }
   
   .wp-block-column.is-vertically-aligned-top, .wp-block-column.is-vertically-aligned-center, .wp-block-column.is-vertically-aligned-bottom {
 width: 100%; }
+  .carousel-control-next svg {
+    width: 42px;
+    height: auto;
+    background: #000;
+    right: 0;
+    position: absolute;
+  }
+  .carousel-control-prev svg {
+    width: 42px;
+    height: auto;
+    background: #000;
+    left: 0;
+    position: absolute;
+  }
+  .carousel-indicators li {
+    opacity: .7;
+  }
+  .carousel-indicators .active{
+    background-color: ${colors.primary};
+  }
+  .footer-map {
+    border: none;
+    margin-bottom: 25px;
+  }
 `;
 
 const globalStyles = (colors) =>

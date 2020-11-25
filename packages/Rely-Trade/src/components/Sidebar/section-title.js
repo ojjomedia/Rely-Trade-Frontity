@@ -36,5 +36,5 @@ const Title = styled.div`
     }
 `
 const Titletext = styled.h4`
-
+    color: ${(props) => props.color} !important;
 `

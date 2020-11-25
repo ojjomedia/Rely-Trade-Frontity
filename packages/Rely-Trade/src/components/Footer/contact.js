@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, styled } from 'frontity';
 import { FaHome } from 'react-icons/fa';
 import { Image } from 'react-bootstrap';
-import map from '../../img/google-map.png';
+import Map from './map';
 
 const Contact = ({ state }) => {
     const { primary } = state.theme.colors;
@@ -12,7 +12,7 @@ const Contact = ({ state }) => {
             <Content>
                 <FaHome color={primary} /> House# 4/C, Road# 7/B, Sector# 09, Uttara, Dhaka-1230.
             </Content>
-            <Img src={map} width="100%" height="150" />
+            <Map />
         </>
     )
 }

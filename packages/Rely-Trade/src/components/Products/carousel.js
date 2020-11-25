@@ -16,7 +16,7 @@ const ProductCarousel = ({ state, libraries, CategoryId }) => {
                 {data.items.map((item, index) => {
                     const post = state.source.post[item.id];
                     const Img = state.theme.thumbnal.showOnList;
-                    return post.categories[post.categories.length - 1] == CategoryId && (
+                    return post.categories[0] == CategoryId && (
                         <Col xs lg={3} className="pl-0" key={index}>
                             <ProdcutItem border={light}>
                                 <ItemLink href={post.link}>

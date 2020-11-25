@@ -6,7 +6,7 @@ import SearchForm from '../Header/Middle/search-form';
 
 const SearchPage = ({ state }) => {
     const data = state.source.get(state.router.link);
-    const { primary, text } = state.theme.colors;
+    const { text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
     return data.isSearch ? (
         <>

@@ -4,10 +4,7 @@ import TitleSection from '../Sidebar/section-title';
 import ProductCarousel from '../Products/carousel';
 import Link from '../link';
 
-const ProductLayout = ({ state, CategoriesTitle, libraries, Id, SubCategory }) => {
-    const data = state.source.get(state.router.link);
-    // Get the html2react component.
-    const Html2React = libraries.html2react.Component;
+const ProductLayout = ({ state, CategoriesTitle, Id, SubCategory }) => {
     const { primary, text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
     return (
