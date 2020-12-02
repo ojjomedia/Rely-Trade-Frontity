@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import { connect, Global, styled } from 'frontity';
+import Title from './page-meta-title';
+import { connect, Global, styled, Head } from 'frontity';
 import Footer from './Footer';
 import globalStyles from './styles/global-styles';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -20,6 +21,11 @@ const Root = ({ state }) => {
       <>
         <Global styles={globalStyles(state.theme.colors)} />
         <FontFaces />
+        {/* <Title /> */}
+        <Head>
+          <html lang="en" />
+          <meta name="description" content={state.frontity.description} />
+        </Head>
         <Header />
         <main>
           <Container>

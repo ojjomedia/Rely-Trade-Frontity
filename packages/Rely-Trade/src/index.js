@@ -1,5 +1,5 @@
 import Root from "./components";
-import { ProductPage } from './components/Hook/handlers';
+import { ProductPage, ProductItem } from './components/Hook/handlers';
 
 export default {
   name: "Rely-Trade",
@@ -39,40 +39,52 @@ export default {
       categorires: {
         list: [
           [
-            "INDUSTRIAL MACHINERY",
-            "/category/industrial-machinery"
+            "INDUSTRIAL",
+            "/category/industrial/"
           ],
           [
-            "SAFETY EQUIPMENT",
-            "/category/safety-equipments"
+            "WATER & WASTEWATER",
+            "/category/water-wastewater/"
           ],
           [
-            "SECURITY EQUIPMENT’S",
-            "/category/security-equipments",
+            "HEALTH & SAFETY",
+            "/category/health-safety/",
           ],
           [
-            "MEDICAL EQUIPMENT’S",
-            "/category/medical-equipments"
+            "SECURITY ",
+            "/category/security/"
           ],
           [
-            "COMMERCIAL EQUIPMENT’S",
-            "/category/commercial-equipments"
+            "TEXTILE LAB CONSUMABLE",
+            "/category/textile-lab-consumable/"
           ],
           [
-            "AQUA CULTURAL EQUIPMENT’S",
-            "/category/aqua-cultural-equipments"
-          ],
-          [
-            "LAB EQUIPMENT’S",
-            "/category/lab-equipment"
+            "LABORATORY",
+            "/category/laboratory/"
           ],
           [
             "INDUSTRIAL PLANT",
-            "/category/industrial-plant"
+            "/category/industrial-plant/"
           ],
           [
-            "DM PLANT",
-            "/category/industrial-plant/dm-plant"
+            "MEDICAL",
+            "/category/medical/"
+          ],
+          [
+            "COMMERCIAL",
+            "/category/commercial/"
+          ],
+          [
+            "AQUA CULTURAL",
+            "/category/aqua-cultural/"
+          ],
+          [
+            "AGRICULTURAL",
+            "/category/agricultural/"
+          ],
+          [
+            "OTHERS",
+            "/category/others/"
           ]
         ]
       },
@@ -121,7 +133,7 @@ export default {
   actions: {
     theme: {
       init: ({ libraries }) => {
-        libraries.source.handlers.push(ProductPage);
+        libraries.source.handlers.push(ProductPage, ProductItem);
       }
     }
   },

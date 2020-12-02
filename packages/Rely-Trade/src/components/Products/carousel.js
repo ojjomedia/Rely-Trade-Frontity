@@ -11,13 +11,13 @@ const ProductCarousel = ({ state, libraries, CategoryId }) => {
     const { light } = state.theme.colors.gray;
     return (
         <>
-        <Container>
+        <Container className="pr-0">
             <Row>
                 {data.items.map((item, index) => {
                     const post = state.source.post[item.id];
                     const Img = state.theme.thumbnal.showOnList;
-                    return post.categories[0] == CategoryId && (
-                        <Col xs lg={3} className="pl-0" key={index}>
+                    return post.categories.find(element => element == CategoryId) == CategoryId && (
+                        <Col xs lg={3} className="pl-0 mb-4" key={index}>
                             <ProdcutItem border={light}>
                                 <ItemLink href={post.link}>
                                     <ItemImage>
@@ -46,6 +46,11 @@ const ItemLink = styled(Link)`
 `
 const ProdcutItem = styled.div`
     height: 100%;
+    border: 1px solid;
+    border-radius: 5px;
+    overflow: auto;
+    border-color: #dddddd;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
 `
 const ItemImage = styled.div`
 

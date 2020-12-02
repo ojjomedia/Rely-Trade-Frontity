@@ -79,9 +79,9 @@ const ItemLink = styled(Link)`
 `
 const ProductBox = styled.div`
     margin-bottom: 50px;
-    border: 1px solid;
-    padding: 30px 0;
-    border-color: ${(props) => props.border};
+    /* border: 1px solid; */
+    padding: 0;
+    /* border-color: ${(props) => props.border}; */
 `
 const Bubtton = styled(Link)`
     text-align: center !important;

@@ -15,6 +15,7 @@ const CategoriesPage = ({ state }) => {
         <>
         <ProduuctTitle className="shadow-sm">
             <Title> {data.taxonomy} : {CategoryName.name} </Title>
+            <p>Showing all {data.items.length} results</p>
         </ProduuctTitle>
         <ProductBox>
         <Container>
@@ -73,6 +74,11 @@ const ProductBox = styled.div`
 const ProduuctTitle = styled.div`
     padding: 20px;
     margin-bottom: 35px;
+    & p{
+        font-size: 14px;
+        color: #777;
+        text-align: center;
+    }
     & h1 {
         font-size: 32px;
         font-weight: 700;

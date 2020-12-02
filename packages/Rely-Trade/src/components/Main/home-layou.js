@@ -6,30 +6,30 @@ const HomeLayou = ({ state }) => {
     return (
         <div>
             <ProductLayout 
-            CategoriesTitle="Safety Equipment's" 
-            Id="90"
+            CategoriesTitle="HEALTH & SAFETY" 
+            Id="226"
             SubCategory={ 
-                [['Safety', '/category/safety-equipments/safety/'],
-                ['Masks', '/category/safety-equipments/masks/'],
-                ['Ear Protector', '/category/safety-equipments/ear-protector/'],
-                ['Safety Goggles', '/category/safety-equipments/safety-goggles/']] 
+                [['Safety Shoe', '/category/health-safety/safety-shoe/'],
+                ['Gum Boot', '/category/health-safety/gum-boot/'],
+                ['Eyewash Station', '/category/health-safety/eyewash-station/'],
+                ['Safety Goggles', '/category/health-safety/safety-goggles/']] 
             } />
 
             <ProductLayout 
             CategoriesTitle="Industrial Plant" 
-            Id="92"
+            Id="227"
             SubCategory={ 
-                [['DM Plant', '/category/industrial-plant/dm-plant/'],
+                [['DM Plant', '/category/industrial-plant/demineralization-plant-dm-plant/'],
                 ['Iron Removal Plant', '/category/industrial-plant/iron-removal-plant/'],
-                ['Water Softening Plant', '/category/industrial-plant/water-softening-plant/']] 
+                ['Water Softening Plant', '/category/industrial-plant/water-treatment-plant-wtp/']] 
             } />
 
             <ProductLayout 
-            CategoriesTitle="Lab Equipment" 
-            Id="91"
+            CategoriesTitle="TEXTILE LAB CONSUMABLE" 
+            Id="228"
             SubCategory={ 
-                [['Textile Lab Consumable', '/category/lab-equipment/textile-lab-consumable/'],
-                ['Textile Lab Machinery', '/category/lab-equipment/textile-lab-machinery/']] 
+                [['Color Matching Cabinet', '/category/textile-lab-consumable/color-matching-cabinet/'],
+                ['Weight Scale & Balance', '/category/textile-lab-consumable/weight-scale-balance/']] 
             } />
             
         </div>
