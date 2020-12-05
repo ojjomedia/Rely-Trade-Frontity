@@ -6,7 +6,7 @@ const HomeLayou = ({ state }) => {
     return (
         <div>
             <ProductLayout 
-            CategoriesTitle="HEALTH & SAFETY" 
+            CategoriesTitle="HEALTH &amp; SAFETY" 
             Id="226"
             SubCategory={ 
                 [['Safety Shoe', '/category/health-safety/safety-shoe/'],

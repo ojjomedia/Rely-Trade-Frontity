@@ -59,7 +59,7 @@ export const ProductPage = {
       //3. add link to data
       const currentPageData = state.source.data[link];
       const newPageData = {
-        id: '420',
+        id: '220',
         items,
         link,
         Id,
@@ -79,4 +79,4 @@ export const ProductPage = {
       await archive.func({ link, params, state, libraries, force });
       Object.assign(currentPageData, newPageData);
     },
-    }
+  };

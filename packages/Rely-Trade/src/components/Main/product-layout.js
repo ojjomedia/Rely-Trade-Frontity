@@ -4,14 +4,15 @@ import TitleSection from '../Sidebar/section-title';
 import ProductCarousel from '../Products/carousel';
 import Link from '../link';
 
-const ProductLayout = ({ state, CategoriesTitle, Id, SubCategory }) => {
+const ProductLayout = ({ state, CategoriesTitle, Id, libraries, SubCategory }) => {
     const { primary, text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
+    const Html2React = libraries.html2react.Component;
     return (
         <MainContainer>
             <TilteSection border={light}>
                 <TitleBox bg={primary}>
-                    <TitleSection> {CategoriesTitle} </TitleSection>
+                    <TitleSection> <Html2React html={CategoriesTitle} /> </TitleSection>
                 </TitleBox>
                 <SubCat>
                     <List>
