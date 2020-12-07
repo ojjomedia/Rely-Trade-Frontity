@@ -10,21 +10,21 @@ const ProductCarousel = ({ state, libraries, CategoryId }) => {
     const { text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
     return (
-        <>
         <Container className="pr-0">
-            <Row>
+            <Row className="w-100">
                 {data.items.map((item, index) => {
                     const post = state.source.post[item.id];
                     const Img = state.theme.thumbnal.showOnList;
                     return post.categories.find(element => element == CategoryId) == CategoryId && (
-                        <Col xs lg={3} className="pl-0 mb-4" key={index}>
+                        <Col xs={12} md={6} lg={3} className="pl-0 mb-4" key={index}>
                             <ProdcutItem border={light}>
                                 <ItemLink href={post.link}>
                                     <ItemImage>
                                         { Img === true && <Thumbnal classAdd="img-height" id={post.featured_media} /> }
                                     </ItemImage>
-                                    
-                                    <ItemContent color={text}> <Title><Html2React html={post.title.rendered} /></Title> </ItemContent>
+                                    <ItemContent color={text}>
+                                        <Title> <Html2React html={post.title.rendered} /> </Title>
+                                    </ItemContent>
                                 </ItemLink>
                             </ProdcutItem>
                         </Col>
@@ -32,7 +32,6 @@ const ProductCarousel = ({ state, libraries, CategoryId }) => {
                 })}
             </Row>
         </Container>
-        </>
     )
 }
 

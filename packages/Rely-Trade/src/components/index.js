@@ -14,10 +14,11 @@ import Products from './Products';
 import LoadingImg from '../img/Loading.gif';
 import SearchPage from './Pages/search';
 import CategoriesPage from './Products/categories';
+import Loading from './loading';
 
 const Root = ({ state }) => {
     const data = state.source.get(state.router.link);
-    return data.isReady ? (
+    return(
       <>
         <Global styles={globalStyles(state.theme.colors)} />
         <FontFaces />
@@ -27,13 +28,14 @@ const Root = ({ state }) => {
           <meta name="description" content={state.frontity.description} />
         </Head>
         <Header />
-        <main>
+        <MainSection>
           <Container>
             <Row>
-              <Col lg={3} className="p-0">
+              <Col lg={3} className="p-0 left_bar">
                 <Sidebar />
               </Col>
               <Col lg={9}>
+                {data.isFetching && <Loading /> }
                 {data.isArchive && data.isHome && <MainPage /> }
                 {data.isPage && <Pages /> }
                 {data.isCategory && <CategoriesPage /> }
@@ -42,15 +44,31 @@ const Root = ({ state }) => {
                 {data.isProducts && <Pages /> }
                 {data.is404 && <Page404 /> }
               </Col>
+              <Col lg={3} className="p-0 bottom_bar_mobile">
+                <Sidebar />
+              </Col>
             </Row>
           </Container>
-        </main>
+        </MainSection>
         <Footer />
       </>
-    ) : <LoadContainer><Load src={LoadingImg} alt="Loading..." /></LoadContainer>;
+    );
   };
 
 export default connect(Root);
+const MainSection = styled.main`
+  & .bottom_bar_mobile{
+    display: none;
+  }
+  @media (max-width: 800px){
+    & .left_bar{
+      display: none;
+    }
+    & .bottom_bar_mobile{
+      display: block;
+    }
+  }
+`
 
 const LoadContainer = styled.div`
   display: initial;

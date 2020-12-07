@@ -17,11 +17,11 @@ const Footer = ({ state }) => {
         <MainContainer bg={footer}>
             <Container>
                 <Row>
-                    <Col xs lg={3}>
+                    <Col xs={12} md={6} lg={3} className="mb-4">
                         <About />
                         <SocialIcon />
                     </Col>
-                    <Col xs lg={5}>
+                    <Col xs={12} md={6} lg={5} className="mb-4">
                         <Row>
                             <Col xs lg={6} className="fot-myacc">
                                 <MyAccount />
@@ -31,7 +31,7 @@ const Footer = ({ state }) => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs lg={4}>
+                    <Col xs={12} md={6} lg={4} className="mb-4">
                         <Contact />
                     </Col>
                 </Row>

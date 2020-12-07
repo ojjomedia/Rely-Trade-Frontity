@@ -228,27 +228,69 @@ const documentSetup = (colors) => css `
       border-radius: 5px;
     }
   }
+  blockquote {
+    margin: 10px 0;
+    border-left: 3px solid;
+    border-color: ${colors.primary};
+    padding-left: 10px;
+    font-style: italic;
+    font-weight: bold;
+  }
 }
-@media (min-width: 782px) {
+.tab-content > .active {
+    width: 100%;
+}
+.mystyle {
+    z-index: 999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transition: all 0.3s cubic-bezier(0.645,0.045,0.355,1) 0s;
+  }
+@media (max-width: 800px) {
+  .container, .container-md, .container-sm {
+    max-width: 90%;
+  }
   .wp-block-columns {
-    flex-wrap: nowrap; } }
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 400px) {
+  /* .container, .container-sm {
+    max-width: 85%;
+  } */
+}
 .wp-block-columns.has-background {
-  padding: 20px 30px; }
+  padding: 20px 30px;
+  }
   
   .wp-block-column {
 flex-grow: 1;
 min-width: 0;
 word-break: break-word;
 overflow-wrap: break-word; }
+@media (max-width: 800px){
+  .wp-block-columns {
+    width: 100%;
+    display: block;
+  }
+  .wp-block-column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+}
 @media (min-width: 1282px) {
   .wp-block-column {
     padding: 25px;
     flex-basis: 0;
-    flex-grow: 1; }
-    .wp-block-column[style] {
-      flex-grow: 0; }
-    .wp-block-column:not(:first-child) {
-      margin-right: 32px; } }
+    flex-grow: 1;
+  }
+  .wp-block-column[style] {
+    flex-grow: 0;
+  }
+  .wp-block-column:not(:first-child) {
+    margin-right: 32px;
+  }
+}
   
   /**
    * All Columns Alignment

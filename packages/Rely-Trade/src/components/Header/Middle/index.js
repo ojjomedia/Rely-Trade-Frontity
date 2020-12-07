@@ -3,34 +3,24 @@ import { connect, styled } from 'frontity';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import Logo from '../../../img/Mail_Logo.png';
 import SearchForm from './search-form';
-import { MdPhoneIphone } from 'react-icons/md';
 import Link from '../../link';
+import ContactInfo from './contact-info';
 
-const Middle = ({state }) => {
-    const { primary } = state.theme.colors;
+const Middle = ({ state }) => {
     return (
         <Section>
             <Container>
                 <Row className="align-items-center">
-                    <Col xs lg={3} className="pl-0">
-                        <Link href="/">
+                    <Col xs={12} lg={3} className="pl-0">
+                        <Brand href="/">
                             <Image src={Logo} width="220" />
-                        </Link>
+                        </Brand>
                     </Col>
-                    <Col xs lg={6}>
+                    <Col xs={12} lg={6} className="search_are">
                         <SearchForm />
                     </Col>
-                    <Col xs lg={3}>
-                        <Main className="d-flex align-items-center float-right">
-                            <PhoneIcon>
-                                <MdPhoneIphone color={primary} />
-                            </PhoneIcon>
-                            <MainContent>
-                                <Title>Hotline:</Title>
-                                <PhoneContent>+880 1779120813<br/>
-                                +880 1558993231</PhoneContent>
-                            </MainContent>
-                        </Main>
+                    <Col xs={12} lg={3} className="contact_info">
+                        <ContactInfo />
                     </Col>
                 </Row>
             </Container>
@@ -42,29 +32,16 @@ export default connect(Middle);
 
 const Section = styled.div`
     padding: 20px 0px;
-`
-const Main = styled.div`
-
-`
-const PhoneIcon = styled.div`
-    & svg{
-        width: 52px;
-        height: auto;
+    @media (max-width: 800px){
+        & .search_are, .contact_info{
+            display: none;
+        }
     }
 `
-const MainContent = styled.div`
-
-`
-const Title = styled.h3`
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    color: #666;
-`
-const PhoneContent = styled.p`
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 0px;
-    color: #666;
+const Brand = styled(Link)`
+    display: block;
+    width: 100%;
+    @media (max-width: 800px){
+        text-align: center;
+    }
 `

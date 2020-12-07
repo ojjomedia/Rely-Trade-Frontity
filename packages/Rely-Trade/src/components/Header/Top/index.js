@@ -10,10 +10,10 @@ const Top = () => {
         <Section>
             <Container>
                 <Row>
-                    <Col lg={6}>
+                    <Col xs={6} lg={6}>
                         <SocialIcon />
                     </Col>
-                    <Col lg={6} className="text-right">
+                    <Col xs={6} lg={6} className="text-right">
                         <SiGooglemaps className="map" data-toggle="tooltip" data-placement="top" title="Your Location input here..." />
                         <MdEmail className="email" data-toggle="tooltip" data-placement="top" title="Your Email Here..." />
                     </Col>

@@ -13,7 +13,7 @@ const CategoriesPage = ({ state, libraries }) => {
     const { primary, text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
 
-    return data.isReady ? (
+    return (
         <>
         <ProduuctTitle className="shadow-sm">
             <Title> {data.taxonomy} : <Html2React html={CategoryName.name} /> </Title>
@@ -53,7 +53,7 @@ const CategoriesPage = ({ state, libraries }) => {
         </Container>
         </ProductBox>
         </>
-    ) : <LoadContainer><Load src={LoadingImg} alt="Loading..." /></LoadContainer>;
+    );
 }
 
 export default connect(CategoriesPage);

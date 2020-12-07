@@ -45,6 +45,7 @@ const TilteSection = styled.div`
     border-color: ${(props) => props.border};
 `
 const TitleBox = styled.div`
+    display: inline-block;
     & h2, h3, h4 {
         text-transform: uppercase;
         margin: 0px;
@@ -97,5 +98,8 @@ const Bubtton = styled(Link)`
     color: #fff !important;
     & :hover {
         color: ${(props) => props.color} !important;
+    }
+    @media (max-width: 400px) {
+        width: 50%;
     }
 `

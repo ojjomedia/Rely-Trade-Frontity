@@ -17,10 +17,10 @@ const Testimonial = ({ state }) => {
                     <Content color={base}>"Duls aliquam, magna ac fermentum are finibus, orci viverra risus, nan into varius tellus tortor sed eros. Sed Pharetra ante sit amet suscipit arnare"</Content>
                 </Contentbox>
                 <Row>
-                    <ImageBox xs lg={3} className="pr-0">
+                    <ImageBox xs={3} md={3} lg={3} className="pr-0">
                         <Image src={UserImg} width="100%" />
                     </ImageBox>
-                    <InfoBox xs lg={9}>
+                    <InfoBox xs={9} md={9} lg={9}>
                         <Name color={primary}>Mr. Hasan Ali</Name>
                         <Possession color={base}>Web designer</Possession>
                     </InfoBox>

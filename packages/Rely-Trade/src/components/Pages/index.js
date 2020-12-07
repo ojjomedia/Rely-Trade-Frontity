@@ -33,20 +33,20 @@ const Pages = ({ state, libraries }) => {
                 <p>Showing all {data.items.length} results</p>
             </ProduuctTitle>
             <ProductBox>
-                  <Container>
+                <Container>
                     <Row>
                     {data.items.map((item, index) => {
                         const post = state.source.post[item.id];
                         const Img = state.theme.thumbnal.showOnList;
                         return(
-                        <Col xs lg={3} className="pl-0" key={index}>
+                        <Col xs={12} md={6} lg={3} className="pl-0 mb-4" key={index}>
                             <ProdcutItem border={light}>
                                 <ItemLink href={post.link}>
                                     <ItemImage>
                                         { Img === true && <Thumbnal classAdd="img-height" id={post.featured_media} /> }
                                     </ItemImage>
                                     <ItemContent>
-                                        <ProdcutTitle color={text}> { post.title.rendered } </ProdcutTitle>
+                                        <ProdcutTitle color={text}> <Html2React html={ post.title.rendered } /> </ProdcutTitle>
                                     </ItemContent>
                                 </ItemLink>
                             </ProdcutItem>
@@ -54,8 +54,8 @@ const Pages = ({ state, libraries }) => {
                         )
                     })}
                     </Row>
-                  </Container>
-                  </ProductBox>
+                </Container>
+            </ProductBox>
         </ProductBox>
         }
         </>

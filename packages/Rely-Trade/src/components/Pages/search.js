@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect, styled } from 'frontity';
-import { Col, Container, Row, Image } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Thumbnal from '../Main/thumbnal';
 import SearchForm from '../Header/Middle/search-form';
+import Link from '../link';
 
-const SearchPage = ({ state }) => {
+const SearchPage = ({ state, libraries }) => {
     const data = state.source.get(state.router.link);
     const { text } = state.theme.colors;
     const { light } = state.theme.colors.gray;
-    return data.isSearch ? (
+    const formatQuery = (query) => query.trim().replace("+", " ").toLowerCase();
+    const PageTitle = formatQuery(data.searchQuery);
+    const Html2React = libraries.html2react.Component;
+    return(
         <>
             <ProduuctTitle className="shadow-sm">
-                <Title> Search : {data.searchQuery} </Title>
+                <Title> Search : {PageTitle} </Title>
             </ProduuctTitle>
             <ProductBox>
             <Container>
@@ -20,14 +24,16 @@ const SearchPage = ({ state }) => {
                     const post = state.source.post[item.id];
                     const Img = state.theme.thumbnal.showOnList;
                     return(
-                    <Col xs lg={3} className="pl-0" key={index}>
+                    <Col xs={12} md={6} lg={3} className="pl-0 mb-4" key={index}>
                         <ProdcutItem border={light}>
+                            <ItemLilnk href={post.link}>
                             <ItemImage>
                                 { Img === true && <Thumbnal classAdd="img-height" id={post.featured_media} /> }
                             </ItemImage>
                             <ItemContent>
-                                <ProdcutTitle color={text}> { post.title.rendered } </ProdcutTitle>
+                                <ProdcutTitle color={text}> <Html2React html={ post.title.rendered } /> </ProdcutTitle>
                             </ItemContent>
+                            </ItemLilnk>
                         </ProdcutItem>
                     </Col>
                     )
@@ -45,20 +51,10 @@ const SearchPage = ({ state }) => {
             </Container>
             </ProductBox>
         </>
-    ) : <LoadContainer><Load src={LoadingImg} alt="Loading..." /></LoadContainer>;
+    );
 }
 
 export default connect(SearchPage);
-
-const LoadContainer = styled.div`
-  display: initial;
-`
-const Load = styled.img`
-  margin: auto;
-  width: 3%;
-  margin-top: 17%;
-  display: block;
-`
 const ProductBox = styled.div`
     margin-bottom: 50px;
     & .col {
@@ -96,11 +92,15 @@ const ProdcutItem = styled.div`
 const ItemImage = styled.div`
 `
 const ItemContent = styled.div`
+    padding: 0 5px;
 `
 const ProdcutTitle = styled.h3`
     font-size: 14px;
     margin: 0px 0 20px 0;
     text-align: center;
+`
+const ItemLilnk = styled(Link)`
+
 `
 const Error = styled(Col)`
     text-align: center;

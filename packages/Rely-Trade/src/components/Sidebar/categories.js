@@ -5,7 +5,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { FaList } from 'react-icons/fa';
 
 const Menu = ({options, currentPageLink, submenu}) => (
-    <StyledMenu submenu={submenu} className={submenu && "subMenu"}>
+    <BodyList submenu={submenu} className={submenu && "subMenu"}>
       {options.map(({name, link, submenu}) => {
         // Check if the link matched the current page url
         const isCurrentPage = currentPageLink === link;
@@ -22,16 +22,15 @@ const Menu = ({options, currentPageLink, submenu}) => (
           </BodyItem>
         );
       })}
-    </StyledMenu>
+    </BodyList>
   )
 
-const Categories = ({ state }) => {
+const Categories = ({ state, className }) => {
     const category = state.theme.categorires;
-    const isThereLink = category != null && category.length > 0;
-    const { primary, text } = state.theme.colors;
+    const { primary } = state.theme.colors;
     const { lighttext, light } = state.theme.colors.gray;
     return (
-        <MainBody>
+        <MainBody className={className}>
             <TitleSection bg={primary}>
                 <TitleIcon>
                     <FaList color={lighttext} />
@@ -39,19 +38,7 @@ const Categories = ({ state }) => {
                 <Title color={lighttext}>Categories</Title>
             </TitleSection>
             <Body color={light}>
-                {/* <BodyList>
-                        {
-                            isThereLink && category.map(([name, link]) => {
-                                const isCurrentPage = state.router.link === link;
-                                return(
-                                    <BodyItem key={name}>
-                                        <ItemLink href={link} hover={primary} bg={light} color={text} aria-current={isCurrentPage ? "category" : undefined}>{name} <span className="float-right"> <MdKeyboardArrowRight /> </span></ItemLink>
-                                    </BodyItem>
-                                )
-                            })
-                        }
-                </BodyList> */}
-                <Menu options={state.theme.categorires} currentPageLink={state.router.link} />
+                <Menu options={category} currentPageLink={state.router.link} />
             </Body>
         </MainBody>
     )
@@ -87,21 +74,6 @@ const Body = styled.div`
     border: 1px solid;
     border-color: ${(props) => props.color};
 `
-const BodyList = styled.ul`
-    padding: 0px;
-    visibility: ${({submenu}) => submenu && 'hidden'};
-    position: ${({submenu}) => submenu && 'absolute'};
-    /* ${BodyItem}:hover & {
-        visibility: ${({submenu}) => submenu && 'visible'};
-        width: ${({submenu}) => submenu && '100%'};
-        left: ${({submenu}) => submenu && '100%'};
-        z-index: ${({submenu}) => submenu && '999'};
-        background: ${({submenu}) => submenu && '#fff'};
-    } */
-    & :hover {
-        
-    }
-`
 const BodyItem = styled.li`
     list-style: none;
 `
@@ -112,17 +84,14 @@ const ItemLink = styled(Link)`
     display: block;
     padding: 0 15px;
     text-transform: uppercase;
-    /* color: ${(props) => props.color} !important; */
     & :hover .subMenu {
         visibility: ${({submenu}) => submenu && 'visible'} !important;
     }
     & :hover, & [aria-current="category"], & :focus {
         text-decoration: none;
-        /* background-color: ${(props) => props.bg};
-        color: ${(props) => props.hover} !important; */
     }
 `
-const StyledMenu = styled.ul`
+const BodyList = styled.ul`
   flex-direction: ${({submenu}) => submenu && 'column'};
   visibility: ${({submenu}) => submenu && 'hidden'};
   position: ${({submenu}) => submenu && 'absolute'};

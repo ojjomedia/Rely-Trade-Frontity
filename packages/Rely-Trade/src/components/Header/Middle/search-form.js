@@ -45,6 +45,7 @@ const SearchForm = ({ state, actions }) => {
             name="search"
             className="mr-sm-2 search-form"
             onKeyDown={enterhandle}
+            onChange={OnSubmit}
             />
             <InputGroup.Append>
                 <FaSearch color={primary} onClick={OnSubmit} />

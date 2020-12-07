@@ -12,10 +12,10 @@ const FooterTop = ({ state }) => {
         <MainContainer>
             <Container>
                 <Row>
-                    <Col xs lg={4}>
+                    <Col xs={12} md={6} lg={4}>
                         <Item border={light}>
                             <Row>
-                                <Col xs lg={3} className="d-flex pr-0">
+                                <Col xs={4} md={3} lg={3} className="d-flex pr-0">
                                     <FaRocket color={primary} />
                                 </Col>
                                 <Col xs lg={9} className="pl-0">
@@ -25,10 +25,10 @@ const FooterTop = ({ state }) => {
                             </Row>
                         </Item>
                     </Col>
-                    <Col xs lg={4}>
+                    <Col xs={12} md={6} lg={4}>
                         <Item border={light}>
                             <Row>
-                                <Col xs lg={3} className="d-flex pr-0">
+                                <Col xs={4} md={3} lg={3} className="d-flex pr-0">
                                     <BsHeartHalf color={secondary} />
                                 </Col>
                                 <Col xs lg={9} className="pl-0">
@@ -38,10 +38,10 @@ const FooterTop = ({ state }) => {
                             </Row>
                         </Item>
                     </Col>
-                    <Col xs lg={4}>
+                    <Col xs={12} md={6} lg={4}>
                         <Item border={light}>
                             <Row>
-                                <Col xs lg={3} className="d-flex pr-0">
+                                <Col xs={4} md={3} lg={3} className="d-flex pr-0">
                                     <AiFillGift color={warning} />
                                 </Col>
                                 <Col xs lg={9} className="pl-0">
@@ -67,7 +67,7 @@ const Item = styled.div`
     border: 3px solid;
     border-color: ${(props) => props.border};
     padding: 15px 30px;
-
+    margin-bottom: 25px;
     & svg {
         text-align: center;
         width: 50px;
