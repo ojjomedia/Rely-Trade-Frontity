@@ -21,7 +21,7 @@ const Root = ({ state }) => {
       <>
         <Global styles={globalStyles(state.theme.colors)} />
         <FontFaces />
-        <Title />
+        {/* <Title /> */}
         <Head>
           <html lang="en" />
           <meta name="description" content={state.frontity.description} />
