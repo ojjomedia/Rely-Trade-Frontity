@@ -2,7 +2,7 @@ const settings = {
   "name": "rely-trade",
   "state": {
     "frontity": {
-      "url": "http://app.relytrade.com",
+      "url": "http://relytrade.com",
       "title": "Rely Trade",
       "description": "WordPress installation for Frontity development"
     }
@@ -53,7 +53,7 @@ const settings = {
       "state": {
         "source": {
           prefix: "/wp-json",
-          api: "http://app.relytrade.com/wp-json",
+          api: "http://relytrade.com/wp-json",
           params: {
             per_page: 100,
             // type: ["post", "page"],
