@@ -11,7 +11,7 @@ const ProductCarousel = ({ state, libraries, CategoryId }) => {
     const { light } = state.theme.colors.gray;
     return (
         <Container className="pr-0">
-            <Row className="w-100">
+            <RowBody>
                 {data.items.map((item, index) => {
                     const post = state.source.post[item.id];
                     const Img = state.theme.thumbnal.showOnList;
@@ -30,13 +30,17 @@ const ProductCarousel = ({ state, libraries, CategoryId }) => {
                         </Col>
                     )
                 })}
-            </Row>
+            </RowBody>
         </Container>
     )
 }
 
 export default connect(ProductCarousel);
-
+const RowBody = styled(Row)`
+    @media (max-width: 450px){
+      width: 100%;
+   }
+`
 const ItemLink = styled(Link)`
     
     & :hover {

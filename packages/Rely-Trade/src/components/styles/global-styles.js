@@ -248,7 +248,7 @@ const documentSetup = (colors) => css `
   }
 @media (max-width: 800px) {
   .container, .container-md, .container-sm {
-    max-width: 90%;
+    max-width: 95%;
   }
   .wp-block-columns {
     flex-wrap: nowrap;

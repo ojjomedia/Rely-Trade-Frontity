@@ -84,12 +84,20 @@ const ItemLink = styled(Link)`
     display: block;
     padding: 0 15px;
     text-transform: uppercase;
-    & :hover .subMenu {
-        visibility: ${({submenu}) => submenu && 'visible'} !important;
-    }
     & :hover, & [aria-current="category"], & :focus {
         text-decoration: none;
     }
+  @media (max-width: 800px) {
+    &[aria-current="category"] + .subMenu  {
+      display: inline-grid !important;
+      position: inherit !important;
+      visibility: visible;
+      left: 100%;
+      opacity: 1;
+      transform: translateY(0);
+      justify-content: inherit !important;
+    }
+  }
 `
 const BodyList = styled.ul`
   flex-direction: ${({submenu}) => submenu && 'column'};

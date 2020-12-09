@@ -11,7 +11,6 @@ import MainPage from './Main';
 import Pages from './Pages';
 import Page404 from './404';
 import Products from './Products';
-import LoadingImg from '../img/Loading.gif';
 import SearchPage from './Pages/search';
 import CategoriesPage from './Products/categories';
 import Loading from './loading';
@@ -22,7 +21,7 @@ const Root = ({ state }) => {
       <>
         <Global styles={globalStyles(state.theme.colors)} />
         <FontFaces />
-        {/* <Title /> */}
+        <Title />
         <Head>
           <html lang="en" />
           <meta name="description" content={state.frontity.description} />

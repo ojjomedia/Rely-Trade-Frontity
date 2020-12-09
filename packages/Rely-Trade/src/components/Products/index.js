@@ -15,14 +15,14 @@ const Products = ({ state, libraries }) => {
         <MainContainer>
             <Container>
                <Row className="align-items-center">
-                  <Col xs lg={6}>
+                  <Col xs={12} lg={6}>
                      <PostImage>
                         {page.format === "standard" &&
                            Img === true && <Thumbnal id={page.featured_media} />
                         }
                      </PostImage>
                   </Col>
-                  <Col xs lg={6}>
+                  <Col xs={12} lg={6}>
                      <PostTitle>
                         <Title> <Html2React html={page.title.rendered} /> </Title>
                      </PostTitle>
@@ -48,8 +48,12 @@ const MainContainer = styled.div`
 
 `
 const PostImage = styled.div`
-   width: 400px;
+   width: 100%;
    margin-bottom: 15px;
+   text-align: center;
+   & img {
+      width: 400px;
+   }
 `
 const Button  = styled(Link)`
    font-size: 16px;

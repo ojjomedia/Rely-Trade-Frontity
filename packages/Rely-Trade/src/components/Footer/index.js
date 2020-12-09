@@ -23,10 +23,10 @@ const Footer = ({ state }) => {
                     </Col>
                     <Col xs={12} md={6} lg={5} className="mb-4">
                         <Row>
-                            <Col xs lg={6} className="fot-myacc">
+                            <Col xs={12} lg={6} className="fot-myacc">
                                 <MyAccount />
                             </Col>
-                            <Col xs lg={6}>
+                            <Col xs={12} lg={6}>
                                 <Information />
                             </Col>
                         </Row>

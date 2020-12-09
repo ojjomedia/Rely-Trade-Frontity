@@ -25,7 +25,7 @@ export const ProductPage = {
       title: {rendered: "Products"},
       type: "page",
       name: "Products",
-      isPostType: true,
+      isPostType: false,
       isArchive: true,
       isProducts: true,
       // isPostTypeArchive: true,

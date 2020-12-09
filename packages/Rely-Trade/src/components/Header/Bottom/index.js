@@ -94,6 +94,7 @@ const Icon = styled(RiMenuLine)`
     height: 42px;
     padding: 10px;
     background: #ddd;
+    border-radius: 5px;
     &:hover svg, &:focus svg {
         color: #7eb942 !important;
     }
