@@ -53,7 +53,7 @@ const settings = {
       "state": {
         "source": {
           prefix: "/wp-json",
-          api: "http://app.relytrade.com/wp-json",
+          api: "https://app.relytrade.com/wp-json",
           params: {
             per_page: 100,
             // type: ["post", "page"],
