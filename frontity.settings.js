@@ -29,7 +29,7 @@ const settings = {
           prefix: "/wp-json",
           api: "http://15.207.59.25/wp-json",
           params: {
-            per_page: 100,
+            per_page: 30,
             // type: ["post", "page"],
           },
         },
