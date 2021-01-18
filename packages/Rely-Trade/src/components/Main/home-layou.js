@@ -7,7 +7,7 @@ const HomeLayou = ({ state }) => {
     <div>
       <ProductLayout
         CategoriesTitle="HEALTH &amp; SAFETY"
-        Id="226"
+        Id="8"
         SubCategory={[
           ["Safety Shoe", "/category/health-safety/safety-shoe/"],
           ["Gum Boot", "/category/health-safety/gum-boot/"],
@@ -18,7 +18,7 @@ const HomeLayou = ({ state }) => {
 
       <ProductLayout
         CategoriesTitle="Industrial Plant"
-        Id="227"
+        Id="9"
         SubCategory={[
           [
             "DM Plant",
@@ -37,7 +37,7 @@ const HomeLayou = ({ state }) => {
 
       <ProductLayout
         CategoriesTitle="TEXTILE LAB CONSUMABLE"
-        Id="228"
+        Id="10"
         SubCategory={[
           [
             "Color Matching Cabinet",
