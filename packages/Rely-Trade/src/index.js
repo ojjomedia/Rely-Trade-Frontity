@@ -1,5 +1,5 @@
 import Root from "./components";
-import { ProductPage, ProductItem } from "./components/Hook/handlers";
+import { ProductPage } from "./components/Hook/handlers";
 
 export default {
   name: "Rely-Trade",
@@ -25,15 +25,16 @@ export default {
         text: "#444444",
       },
 
-       // Post Thumbnail Show & Hide option here ( Show = ture) ( Hide = false)
-       thumbnal: {
+      // Post Thumbnail Show & Hide option here ( Show = ture) ( Hide = false)
+      thumbnal: {
         showOnList: true,
         showOnPost: true,
       },
 
       // Site link auto fetch option set here
       // if you don't want to auto fetch then type herer "unhover"
-      autoPreFetch: "hover",
+      // if you want fetch all data at once type here "all"
+      autoPreFetch: "all",
 
       /**
        * At the moment, we only include the ascii characters of Inter font.
@@ -555,7 +556,7 @@ export default {
   actions: {
     theme: {
       init: ({ libraries }) => {
-        libraries.source.handlers.push(ProductPage, ProductItem);
+        libraries.source.handlers.push(ProductPage);
       },
     },
   },
