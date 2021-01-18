@@ -27,7 +27,7 @@ const settings = {
       state: {
         source: {
           prefix: "/wp-json",
-          api: "https://app.relytrade.com/wp-json",
+          api: "http://15.207.59.25/wp-json",
         },
       },
     },
